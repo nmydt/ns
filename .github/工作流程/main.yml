@@ -5,7 +5,7 @@ on:
     branches: 
       - master
   schedule:
-    - cron: '0 14 * * *'
+    - cron: '03 16 * * *'
 
 jobs:
  Spider:
