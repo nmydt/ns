@@ -36,8 +36,7 @@ jobs:
         run: pip install -r ./Spider/requirements.txt
       - name: 'Working'
         run: bash ./Spider/main.sh
-        
-		
+        	
       - name: commit
         run: |
           git config --global user.email 319485106@qq.com
