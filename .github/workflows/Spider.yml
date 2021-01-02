@@ -36,10 +36,9 @@ jobs:
         run: pip install -r ./Spider/requirements.txt
       - name: 'Working'
         run: bash ./Spider/main.sh
-  
-      - run: echo hello > ./Spider/pool.html
-
+        
+      - name: Archive code coverage results
         uses: actions/upload-artifact@v2
         with:
-          name: my-artifact
-          path: ./Spider/pool.html
+          name: code-coverage-report
+          path: output/test/code-coverage.html
