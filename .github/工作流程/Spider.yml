@@ -1,6 +1,7 @@
 name: 'GitHub Actions CSDN Email Bot'
 
 on:
+  workflow_dispatch
   push:
     branches: 
       - master
