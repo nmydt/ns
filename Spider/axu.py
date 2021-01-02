@@ -8,13 +8,14 @@ r = requests.get("https://www.axutongxue.com/2020/12/contents.html",headers=head
 html = etree.HTML(r)
 
 lis = html.xpath('//*[@id="menuList"]//li')
+def write(name,start,end):
+    all_li = ''
+    f = open(name,'w',encoding='gbk')
+    for li in lis[int(start):int(end)]:
+        one_li = etree.tostring(li,encoding='gbk').decode('gbk')
+        all_li = all_li + one_li
+    f.write(all_li)
+    f.close()
 
-f = open('./index2.html','w',encoding='gbk')
-f.write('')
-f.close()
-f = open('./index2.html','a',encoding='gbk')
-for li in lis:
-    one_li = etree.tostring(li,encoding='gbk').decode('gbk')
-    f.write(one_li)
-    
-f.close()
+write('../axu.html',0,len(lis)/2)
+write('../axu2.html',len(lis)/2,len(lis))
