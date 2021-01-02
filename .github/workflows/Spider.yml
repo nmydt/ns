@@ -36,14 +36,10 @@ jobs:
         run: pip install -r ./Spider/requirements.txt
       - name: 'Working'
         run: bash ./Spider/main.sh
-
-
-      - name: Upload a Build Artifact
-        uses: actions/checkout@v2
-
+  
       - run: echo hello > ./Spider/pool.html
 
-      - uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
           name: my-artifact
           path: ./Spider/pool.html
