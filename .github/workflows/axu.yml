@@ -35,9 +35,8 @@ jobs:
       - name: 'Install requirements'
         run: pip install -r ./Spider/requirements.txt
       - name: 'Working'
-        run: |
-          cd ./Spider
-          python axu.py
+        run: 
+          python ./Spider/axu.py
        #-----------------------
 
       - name: commit
