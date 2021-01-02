@@ -1,3 +1,3 @@
 #! /bin/bash
 
-python ./ips.py
+python ./Spider/ips.py
