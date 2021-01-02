@@ -10,9 +10,9 @@ html = etree.HTML(r)
 lis = html.xpath('//*[@id="menuList"]//li')
 def write(name,start,end):
     all_li = ''
-    f = open(name,'w',encoding='gbk')
+    f = open(name,'w',encoding='utf-8')
     for li in lis[int(start):int(end)]:
-        one_li = etree.tostring(li,encoding='gbk').decode('gbk')
+        one_li = etree.tostring(li,encoding='utf-8').decode('utf-8')
         all_li = all_li + one_li
     f.write(all_li)
     f.close()
