@@ -44,7 +44,7 @@ jobs:
           git config --global user.name nmydt
           git add .
           git status
-          git commit -m 
+          git commit -m "update" -a
           git push origin master 
 
       - name: Push changes
