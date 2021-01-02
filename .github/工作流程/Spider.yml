@@ -1,12 +1,11 @@
 name: 'GitHub Actions CSDN Email Bot'
 
-on:
-  push:
-    branches: 
-      - master
+on: 
+  workflow_dispatch:
+
   schedule:
     - cron: '30/15 * * * *'
-  workflow_dispatch:
+  
   
 
 jobs:
