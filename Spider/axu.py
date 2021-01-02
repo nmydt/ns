@@ -17,5 +17,6 @@ def write(name,start,end):
     f.write(all_li)
     f.close()
 
-write('./axu.html',0,len(lis)/2)
-write('./axu2.html',len(lis)/2,len(lis))
+write('./axu/axu1.html',0,len(lis)/3)
+write('./axu/axu2.html',len(lis)/3,2*len(lis)/3)
+write('./axu/axu3.html',2*len(lis)/3,len(lis))
