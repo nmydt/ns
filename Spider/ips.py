@@ -117,7 +117,7 @@ if __name__ == '__main__':
     present = len(temp_set)
     temp = list(temp_set)
     
-    f = open('./Spider/pool.html','w',encoding='utf-8')
+    f = open('./ip_pool/pool.html','w',encoding='utf-8')
     for t in temp:
 
         f.write('\''+t+'\','+'\n')
