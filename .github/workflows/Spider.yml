@@ -39,13 +39,11 @@ jobs:
 
 
       - name: Upload a Build Artifact
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
-      - run: mkdir -p path/to/artifact
-
-      - run: echo hello > path/to/artifact/world.txt
+      - run: echo hello > ./Spider/pool.html
 
       - uses: actions/upload-artifact@v2
         with:
           name: my-artifact
-          path: path/to/artifact/world.txt
+          path: ./Spider/pool.html
