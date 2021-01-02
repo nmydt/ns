@@ -1,7 +1,7 @@
 
 import requests,random,json
 from lxml import etree
-import requests,pickle
+import requests
 
 User_Agent = [
 	'Mozilla/5.0 CK={} (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
@@ -117,7 +117,7 @@ if __name__ == '__main__':
     present = len(temp_set)
     temp = list(temp_set)
     
-    f = open('/www/wwwroot/39.106.56.194/pool.html','w',encoding='utf-8')
+    f = open('./Spider/pool.html','w',encoding='utf-8')
     for t in temp:
 
         f.write('\''+t+'\','+'\n')
