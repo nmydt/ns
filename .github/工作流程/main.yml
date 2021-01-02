@@ -1,14 +1,14 @@
-name: 'GitHub Actions IP-POOL'
+name: 'GitHub Actions CSDN Email Bot'
 
 on:
   push:
     branches: 
       - master
   schedule:
-    - cron: '30/20 * * * *'
+    - cron: '0 14 * * *'
 
 jobs:
- Spider:
+csdn-emailbot:
   runs-on: ubuntu-latest
   steps:
     - name: Checkout
@@ -23,6 +23,10 @@ jobs:
       run: pip install -r ./Spider/requirements.txt
     - name: 'Working'
       run: bash ./Spider/main.sh
+
+
+
+
 
 
 
