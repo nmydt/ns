@@ -39,7 +39,7 @@ jobs:
           cd ./chrome
           sudo mv chromedriver /usr/bin/
           cd /home/runner/work/nmydt.github.io/nmydt.github.io
-          chmod 777 ./chrome/chromedriver
+          chmod -R 777 ./chrome/chromedriver
           python ./Spider/test.py
        #-----------------------
 
