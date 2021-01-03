@@ -38,7 +38,7 @@ jobs:
           pwd
           cd ./chrome
           sudo mv chromedriver /usr/bin/
-          cd /
+          cd /home/runner/work/nmydt.github.io/nmydt.github.io
           python ./Spider/test.py
        #-----------------------
 
