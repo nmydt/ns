@@ -35,6 +35,7 @@ jobs:
         run: pip install -r ./Spider/requirements.txt
       - name: 'Working'
         run: |
+          pwd
           cd ./chrome
           sudo mv chromedriver /usr/bin/
           cd /
