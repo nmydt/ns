@@ -16,7 +16,7 @@
 # driver.quit()
 from lxml import etree
 import requests,re
-import random, time
+import random, time,os
 
 User_Agent = [
 	'Mozilla/5.0 CK={} (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
@@ -47,8 +47,14 @@ import random, time
 from selenium import webdriver
 import re,time,csv
 
-driver_path = r'D:/chromedriver/chromedriver.exe'
-driver = webdriver.Chrome(executable_path=driver_path)
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-gpu')
+chrome_options.add_argument('--disable-dev-shm-usage')
+chromedriver = "/usr/bin/chromedriver"
+os.environ["webdriver.chrome.driver"] = chromedriver
+driver = webdriver.Chrome(chrome_options=chrome_options,executable_path=chromedriver)
 def get_detail_urls(url):
     driver.get(url)
     source = driver.page_source
