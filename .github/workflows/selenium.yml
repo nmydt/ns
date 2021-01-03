@@ -37,6 +37,7 @@ jobs:
         run: |
           cd ./chrome
           sudo mv chromedriver /usr/bin/
+          cd /
           python ./Spider/test.py
        #-----------------------
 
