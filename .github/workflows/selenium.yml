@@ -35,10 +35,10 @@ jobs:
         run: pip install -r ./Spider/requirements.txt
       - name: 'Working'
         run: |
-          pwd
-          cd ./chrome
-          sudo mv chromedriver /usr/bin/
+          #pwd
+          #cd ./chrome
+          sudo cp ./chrome/chromedriver /usr/bin/
           chmod -R 777 /usr/bin/chromedriver
-          python /home/runner/work/nmydt.github.io/nmydt.github.io/Spider/test.py
+          python ./Spider/test.py
             #  cd /home/runner/work/nmydt.github.io/nmydt.github.io
     
