@@ -48,7 +48,7 @@ def spider():
         
 if __name__ == '__main__':
     spider()
-    f = open('//vpn.html','w',encoding='utf-8')
+    f = open('/vpn/vpn.html','w',encoding='utf-8')
     for t in ip:
 
         f.write('<a href='+t+'>'+t+'</a>'+'<br>')
