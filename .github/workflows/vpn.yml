@@ -36,7 +36,7 @@ jobs:
         run: pip install -r ./Spider/requirements.txt
       - name: 'Working'
         run: 
-          python ./Spider/vpn.py
+          python ./Spider/openvpn.py
        #-----------------------
 
       - name: commit
