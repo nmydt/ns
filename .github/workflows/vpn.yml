@@ -22,13 +22,11 @@ jobs:
     - name: Set up Python 3.7
       uses: actions/setup-python@v1
       with:
-        python-version: 3.7
-		
+        python-version: 3.7	
     - name: Update paper list
       run: |
         cd spider
-        python vpn.py
-		
+        python vpn.py		
     - name: commit
       run: |
         git config --global user.email 319485106@qq.com
