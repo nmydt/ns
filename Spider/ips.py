@@ -134,7 +134,7 @@ def initpattern():
 
 """
 def save_proxy():
-    f = open('/www/wwwroot/39.106.56.194/ips.html','w')
+    f = open('./ip_pool/ips.html','w')
     f.write(str(new_pools))
 
 if __name__ == '__main__':
@@ -144,7 +144,7 @@ if __name__ == '__main__':
     
     pro()
     #如果平均时间超过200ms重新选取ip
-    for proxy in ip_pools[-4:-1]:
+    for proxy in ip_pools:
         split_proxy = proxy.split(':')
         #获取IP
         ip = split_proxy[0]
