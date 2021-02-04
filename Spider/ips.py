@@ -1,6 +1,3 @@
-
-
-# -*- coding:UTF-8 -*-
 import subprocess as sp
 import requests,json,random,re
 User_Agent = [
@@ -66,11 +63,12 @@ Modify:
 
 def check_ip(ip, lose_time, waste_time):
     #命令 -n 要发送的回显请求数 -w 等待每次回复的超时时间(毫秒)
-    cmd = "ping -n 3 -w 3 %s"
+    cmd = "ping -w 3 %s"
     #执行命令
     p = sp.Popen(cmd % ip, stdin=sp.PIPE, stdout=sp.PIPE, stderr=sp.PIPE, shell=True) 
     #获得返回结果并解码
     out = p.stdout.read().decode("gbk")
+    print(out)
     #丢包数
     lose_time = lose_time.findall(out)
     #当匹配到丢失包信息失败,默认为三次请求全部丢包,丢包数lose赋值为3
@@ -79,7 +77,7 @@ def check_ip(ip, lose_time, waste_time):
     else:
         lose = int(lose_time[0])
     #如果丢包数目大于2个,则认为连接超时,返回平均耗时1000ms
-    if lose > 2:
+    if lose > 25:
         #返回False
         return 1000
     #如果丢包数目小于等于2个,获取平均耗时的时间
@@ -91,7 +89,7 @@ def check_ip(ip, lose_time, waste_time):
             return 1000
         else:
             #
-            average_time = int(average[0])
+            average_time = float(average[0])
             #返回平均耗时
             return average_time
 
@@ -126,9 +124,9 @@ Returns:
 """
 def initpattern():
     #匹配丢包数
-    lose_time = re.compile(u"丢失 = (\d+)", re.IGNORECASE)
+    lose_time = re.compile(u"\s(\d+)%", re.IGNORECASE)
     #匹配平均时间
-    waste_time = re.compile(u"平均 = (\d+)ms", re.IGNORECASE)
+    waste_time = re.compile(u"/(\d.*?)/", re.IGNORECASE)
     return lose_time, waste_time
 
 """
@@ -136,22 +134,24 @@ def initpattern():
 
 """
 def save_proxy():
-    f = open('ip.list','w')
+    f = open('/www/wwwroot/39.106.56.194/ips.html','w')
     f.write(str(new_pools))
 
 if __name__ == '__main__':
     #初始化正则表达式
     lose_time, waste_time = initpattern()
     #获取IP代理
+    
     pro()
     #如果平均时间超过200ms重新选取ip
-    for proxy in ip_pools:
+    for proxy in ip_pools[-4:-1]:
         split_proxy = proxy.split(':')
         #获取IP
         ip = split_proxy[0]
         
         #检查ip
         average_time = check_ip(ip, lose_time, waste_time)
+        print(average_time)
         if average_time < 200:
             if check_ip2(proxy)==200:
                 print(proxy+"验证成功")
