@@ -40,5 +40,5 @@ jobs:
           sudo cp -p ./chrome/chromedriver /usr/bin/
           chmod -R 777 /usr/bin/chromedriver
           python ./Spider/test.py
-            #  cd /home/runner/work/nmydt.github.io/nmydt.github.io
+
     
